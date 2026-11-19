@@ -22,6 +22,7 @@ The maker starts in Dev and opens the team’s custom solution. If the agent alr
 
 From the maker’s seat, the first release is straightforward. Update the solution version, open Pipelines in Dev, and deploy to Test. In this setup, that part is self-service. The person responsible for publishing in Test checks authentication and connections, publishes the agent, and hands it to the testers. For the travel agent, I’d ask a tester to sign in with a vanilla user account, ask for the current mileage rate, and open the policy the agent cites.
 
+<img width="978" height="501" alt="image" src="https://github.com/user-attachments/assets/8c328653-221d-4ffd-baaa-07bb6295748c" />
 
 
 Once the testers are satisfied, the maker requests promotion of the same package they tested. An approval flow in the host sends the request to the designated approver. If the approver rejects it, the release stops there. 
