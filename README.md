@@ -22,6 +22,8 @@ The maker starts in Dev and opens the team’s custom solution. If the agent alr
 
 From the maker’s seat, the first release is straightforward. Update the solution version, open Pipelines in Dev, and deploy to Test. In this setup, that part is self-service. The person responsible for publishing in Test checks authentication and connections, publishes the agent, and hands it to the testers. For the travel agent, I’d ask a tester to sign in with a vanilla user account, ask for the current mileage rate, and open the policy the agent cites.
 
+
+
 Once the testers are satisfied, the maker requests promotion of the same package they tested. An approval flow in the host sends the request to the designated approver. If the approver rejects it, the release stops there. 
 
 If they approve it, the configured service principal imports the managed solution into Prod. The maker can request the release without needing production deployment rights. When someone asks which version went out and who approved it, the team has the package, the approval, and the deployment record to refer to.
