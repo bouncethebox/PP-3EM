@@ -33,9 +33,13 @@ There’s still a job left after the pipeline reports success. Someone needs to 
 
 A few details to check before release day
 Try publishing with your actual environment settings. Block unmanaged customizations sounds like an obvious choice for Prod. Microsoft lists a Copilot Studio limitation with that setting enabled: agent publishing doesn’t work. Resolve that with the platform owner while you’re setting up Test. Where you need to leave the setting off, restrict who can customize the target and review unmanaged solution layers for changes.
+
 Choose the audience on the first deployment. If the stage allows sharing requests and agent sharing is available in your region, the maker can request a security group as part of the release. Native deployment sharing applies the first time that object reaches the target. Shipping version two won’t revise the original sharing assignment. Give the group an owner who can manage membership after launch.
+
 Check ownership in the right Entra screen. Stage-owner deployments have a limitation with OAuth connection references, which is one reason to use a service principal for Prod. When configuring it, check ownership under Entra > Enterprise applications. Being listed as an owner under App registrations alone doesn’t satisfy the pipeline requirement.
+
 Give testers the same connector restrictions they’ll face in Prod. If a tool depends on a connector that production policy blocks, a successful test under a looser policy tells you very little. Run the actual tool call under production-equivalent data loss prevention rules. That gives the maker a chance to fix the design before the release is waiting on an approver.
+
 One job I’d automate later is comparing the production agent inventory with the deployment records in the host. Send unmatched agents to the Power Platform admin with the agent name, environment, and any ownership information you can find. An older agent may predate the pipeline or have come through another approved route. Once the admin knows how it got there and who depends on it, they can bring it under management or retire it.
 
 If the 3-Environment Model predates any agents in the environment with no records in Dataverse, kill them, let the Power Platform Admin sort ‘em out.
